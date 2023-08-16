@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/home">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>MovieBookingApplication</span>
+  <span class="example-spacer"></span>
+  <div class="border">
+    <button mat-stroked-button color="primary" class="example-button-row"
+      aria-label="Example icon-button with share icon" routerLink="/home">
+      Back to Movies
+    </button>
+    <button mat-stroked-button color="primary" class="example-button-row"
+      aria-label="Example icon-button with share icon" routerLink="/login">
+      LogOut
+    </button>
+  </div>
+</mat-toolbar>
+<div>
+  
+  <div class="wrapper">
+    <div class="logo">
+      <img src="https://www.freepnglogos.com/uploads/boss-baby-png/pin-buding-boss-baby-movie-boss-birthday-10.png"
+        alt="Image">
+    </div>
+    <div class="text-center mt-4 name">
+      MovieBookingApp
+    </div>
+
+    <form class="p-3 mt-3" [formGroup]="createMovieForm">
+      <div class="form-field d-flex align-items-center">
+        <input type="text" id="movieId" class="form-control" placeholder="Enter ID" formControlName="movieId" />
+      </div>
+
+      <div class="form-field d-flex align-items-center">
+        <input type="text" id="movieName" class="form-control" placeholder="Enter Movie Name" formControlName="movieName" />
+      </div>
+
+      <div class="form-field d-flex align-items-center">
+        <input type="text" id="totalSeat" class="form-control" placeholder="Enter Total Seats" formControlName="totalSeat" />
+      </div>
+
+      <div class="form-field d-flex align-items-center">
+        <input type="text" id="theaterName" class="form-control" placeholder="Enter Theater Name" formControlName="theaterName" />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4" (click)="addMovie()">
+        Add Movie
+      </button>
+
+      <button type="submit" id="cncel" class="btn btn-danger btn-block mb-4" (click)="cancel()">
+        Cancel
+      </button>
+
+    </form>
+  </div>

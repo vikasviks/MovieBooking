@@ -1,0 +1,83 @@
+<div>
+  <p>
+    <mat-toolbar>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/home">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>MovieBookingApplication</span>
+      <span class="example-spacer"></span>
+      <button mat-stroked-button color="primary" class="example-button-row"
+        aria-label="Example icon-button with share icon" routerLink="/addMovie" *ngIf="role=='Admin'">
+        Add Movie
+      </button>
+      <button mat-stroked-button color="primary" class="example-button-row"
+        aria-label="Example icon-button with share icon" routerLink="/ticket">
+        Ticket Bookings
+      </button>
+      <button mat-stroked-button color="primary" class="example-button-row"
+        aria-label="Example icon-button with share icon" routerLink="/login">
+        LogOut
+      </button>
+    </mat-toolbar>
+  </p>
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="movieId">
+      <th mat-header-cell *matHeaderCellDef> Movie Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.movieId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="movieName">
+      <th mat-header-cell *matHeaderCellDef> Movie Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.movieName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalTickets">
+      <th mat-header-cell *matHeaderCellDef> Total Tickets </th>
+      <td mat-cell *matCellDef="let element"> {{element.totalTickets}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="theaterName">
+      <th mat-header-cell *matHeaderCellDef> Theater Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.theaterName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalSeatBooked">
+      <th mat-header-cell *matHeaderCellDef> Booked Seat </th>
+      <td mat-cell *matCellDef="let element"> {{element.totalSeatBooked}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="availableSeatsForBooking">
+      <th mat-header-cell *matHeaderCellDef> Available Seat </th>
+      <td mat-cell *matCellDef="let element"> {{element.availableSeatsForBooking}} </td>
+    </ng-container>
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+
+        <!-- <mat-icon aria-hidden="false" aria-label="Example update icon" fontIcon="update" *ngIf="role=='Admin'"
+          (click)="update(element.movieId)" routerLink="/addMovie">update</mat-icon> -->
+
+        <mat-icon aria-hidden="false" aria-label="Example delete icon" fontIcon="delete" *ngIf="role=='Admin'"
+          (click)="deleteMovie(element.movieId)">delete</mat-icon>
+
+        <mat-icon aria-hidden="false" aria-label="Example book icon" fontIcon="delete" *ngIf="role=='User'"
+          (click)="getMovieName(element.movieName)" routerLink="/booking">booking</mat-icon>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+</div>

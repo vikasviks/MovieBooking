@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <span>MovieBookingApplication</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<div class="wrapper">
+  <div class="logo">
+    <img src="https://www.freepnglogos.com/uploads/boss-baby-png/pin-buding-boss-baby-movie-boss-birthday-10.png"
+      alt="Image">
+  </div>
+  <div class="text-center mt-4 name">
+    Please Login
+  </div>
+
+<form class="p-3 mt-3" [formGroup]="loginForm" ngSubmit="submitForm()" #form="ngForm">
+
+  <div class="form-field d-flex align-items-center">
+    <input type="text" id="username" class="form-control form-control-lg" formControlName="username" placeholder="Username" />
+  </div>
+
+  <div class="form-field d-flex align-items-center">
+    <input type="password" id="password" class="form-control form-control-lg" formControlName="password" placeholder="Password" />
+  </div>
+
+  <div class="form-field d-flex align-items-center">
+    <label class="form-label m-3" for="roles">Roles </label>
+    <select formControlName="roles" id="roles">
+      <option *ngFor="let role of rolesList">{{role}}</option>
+    </select>
+
+  </div>
+
+  <div class="text-center fs-6">
+    <a routerLink="/forget">Forgot password?</a>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="getLoginData()">Log in</button>
+
+  <div class="form-group">
+    <div class="alert alert-danger" role="alert" *ngIf="form.submitted && status!=true">
+      Login failed: {{ errorMessage }}
+    </div>
+  </div>
+
+  <div class="text-center fs-6">
+    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+  </div>
+
+  <div class="text-center fs-6">
+    <p class="mb-0 me-2">Don't have an account?</p>
+    <button type="button" class="btn" routerLink="/register">Create new</button>
+  </div>
+
+</form>

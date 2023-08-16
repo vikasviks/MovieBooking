@@ -1,0 +1,42 @@
+
+    <mat-toolbar>
+      <span>Ticket Booking for Movie :- </span>
+      <h1> {{movieName}}</h1>
+      <span class="example-spacer"></span>
+      <button mat-stroked-button color="primary" class="example-button-row"
+        aria-label="Example icon-button with share icon" routerLink="/home">
+        Back to Movies
+      </button>
+      <button mat-stroked-button color="primary" class="example-button-row"
+        aria-label="Example icon-button with share icon" routerLink="/login">
+        LogOut
+      </button>
+    </mat-toolbar>
+
+  <div class="wrapper">
+    <div class="logo">
+      <img src="https://www.freepnglogos.com/uploads/boss-baby-png/pin-buding-boss-baby-movie-boss-birthday-10.png"
+        alt="Image">
+    </div>
+
+  <form class="p-3 mt-3" [formGroup]="bookingForm">
+    <div class="form-field d-flex align-items-center">
+      <input type="text" id="theaterName" class="form-control" placeholder="Enter TheaterName" formControlName="theaterName" />
+    </div>
+
+    <div class="form-field d-flex align-items-center">
+      <input type="text" id="seatBooked" class="form-control" placeholder="Enter no. of Ticket" formControlName="seatBooked" />
+    </div>
+
+    <div class="form-field d-flex align-items-center">
+      <input type="text" id="address" class="form-control" placeholder="Enter Address" formControlName="address" />
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="bookTicket()">
+      Book Ticket
+    </button>
+    <button type="submit" class="btn btn-primary btn-block mb-4" (click)="cancel()">
+      Cancel
+    </button>
+
+  </form>

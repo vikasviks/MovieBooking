@@ -1,0 +1,57 @@
+<mat-toolbar>
+    <span>MovieBookingApplication</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+
+<div class="wrapper">
+    <div class="logo">
+        <img src="https://www.freepnglogos.com/uploads/boss-baby-png/pin-buding-boss-baby-movie-boss-birthday-10.png"
+            alt="Image">
+    </div>
+    <div class="text-center mt-4 name">
+        MovieBookingApp
+    </div>
+
+    <form class="p-3 mt-3" [formGroup]="UserForm">
+
+        <div class="form-field d-flex align-items-center">
+            <input type="text" id="loginId" class="form-control" placeholder="Enter ID" formControlName="loginId" />
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <input type="text" id="userName" class="form-control" placeholder="Enter User Name"
+                formControlName="userName" />
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <input type="password" id="password" class="form-control" placeholder="Enter Password"
+                formControlName="password" />
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password"
+                formControlName="confirmPassword" />
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <input type="email" id="email" class="form-control" placeholder="Enter email" formControlName="email" />
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <input type="text" id="contactNumber" class="form-control" placeholder="Enter Contact No."
+                formControlName="contactNumber" />
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <input type="text" id="role" class="form-control" placeholder="Enter Role" formControlName="role" />
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <input type="text" id="answer" class="form-control" placeholder="Enter secret Answer" formControlName="answer" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block mb-4" (click)="addUser()">
+            Register
+        </button>
+        <button type="submit" id="cncel" class="btn btn-danger btn-block mb-4" (click)="cancel()">
+            Cancel
+        </button>
+
+    </form>
+</div>

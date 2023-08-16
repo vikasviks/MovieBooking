@@ -1,0 +1,55 @@
+<div>
+<p>
+  <mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/home">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>MovieBookingApplication</span>
+    <span class="example-spacer"></span>
+    <button mat-stroked-button color="primary" class="example-button-row" aria-label="Example icon-button with share icon" routerLink="/home">
+      Back to Movies
+    </button>
+  </mat-toolbar>
+</p>
+
+<div class="container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="transactionId">
+      <th mat-header-cell *matHeaderCellDef> Transaction Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="movieName">
+      <th mat-header-cell *matHeaderCellDef> Movie Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.movieName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="theaterName">
+      <th mat-header-cell *matHeaderCellDef> Theater Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.theaterName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seatBooked">
+      <th mat-header-cell *matHeaderCellDef> Booked Seat </th>
+      <td mat-cell *matCellDef="let element"> {{element.seatBooked}} </td>
+    </ng-container>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+    <ng-container matColumnDef="bookingDate">
+      <th mat-header-cell *matHeaderCellDef> Booking Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.bookingDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="bookingTime">
+      <th mat-header-cell *matHeaderCellDef> Booking Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.bookingTime}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+
+</div>
